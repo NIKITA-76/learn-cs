@@ -29,7 +29,7 @@ namespace Lessons // Note: actual namespace depends on the project name.
                 }
                 else 
                 {
-                    Console.WriteLine("Вы не ввели некорректные данные !");
+                    Console.WriteLine("Вы не ввели некорректные данные !!");
                     Main();
                 
                 }
