@@ -22,8 +22,18 @@ namespace Lessons // Note: actual namespace depends on the project name.
             }
             catch (Exception ex) 
             {
-                result = (double) sum / count;
-                Console.WriteLine(result);
+                if (count != 0) 
+                {
+                    result = (double) sum / count;
+                    Console.WriteLine(result);
+                }
+                else 
+                {
+                    Console.WriteLine("Вы не ввели некорректные данные !");
+                    Main();
+                
+                }
+
             
             }
 
