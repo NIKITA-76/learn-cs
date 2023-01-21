@@ -9,7 +9,8 @@
 			Console.WriteLine("Выберите операцию");
 			Console.WriteLine("1 - gen_arith \n" +
 				"2 - sum_and_times \n" +
-				"3 - Конвертер валют");
+                "3 - Конвертер валют \n" +
+				"4 - Проверка четности числа");
 			choose = Console.ReadLine();
 
 			switch (choose)
@@ -21,17 +22,20 @@
 				case "2":
 					sum_and_times();
 					break;
-
+					
 				case "3":
 					converter();
 					break;
 
-				default:
+				case "4":
+					parity_check();
+					break;
+
+
+                default:
 					Main();
 					break;
 			}
-
-
 		}
 
 		static void sum_and_times()
@@ -112,9 +116,9 @@
 
 			int result;
 
-			Console.WriteLine("Выберети валюту\n" +
-				"1 - Доллар\n" +
-				"2 - Евро\n" +
+			Console.WriteLine("Выберети валюту \n" +
+				"1 - Доллар \n" +
+				"2 - Евро \n" +
 				"3 - Юань");
 
 			string choose = Console.ReadLine();
@@ -143,8 +147,32 @@
 					break;
 			}
 
+        }
+        static void parity_check()
+        {
+            Console.WriteLine("Введите число, для проверки его на четность");
+            try
+            {
+                int numb = Convert.ToInt32(Console.ReadLine());
+                if (numb % 2 == 0)
+                {
+                    Console.WriteLine("Число четное");
 
+                }
+                else
+                {
+                    Console.WriteLine("Число не четное");
 
-		}
-	}
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Введите число!");
+                parity_check();
+
+            }
+
+        }
+    }
 }
