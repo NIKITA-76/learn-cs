@@ -7,10 +7,12 @@
 
 			string choose;
 			Console.WriteLine("Выберите операцию");
-			Console.WriteLine("1 - gen_arith \n" +
+			Console.WriteLine(
+				"1 - gen_arith \n" +
 				"2 - sum_and_times \n" +
-                "3 - Конвертер валют \n" +
-				"4 - Проверка четности числа");
+				"3 - Конвертер валют \n" +
+				"4 - Проверка четности числа \n" +
+				"5 - Проверка кол-ва чет и нечет чисел");
 			choose = Console.ReadLine();
 
 			switch (choose)
@@ -22,7 +24,7 @@
 				case "2":
 					sum_and_times();
 					break;
-					
+
 				case "3":
 					converter();
 					break;
@@ -31,8 +33,12 @@
 					parity_check();
 					break;
 
+				case "5":
+					check_numb();
+					break;
 
-                default:
+
+				default:
 					Main();
 					break;
 			}
@@ -52,8 +58,6 @@
 				{
 					accum++;
 					list_of_num.Add(Convert.ToInt32(Console.ReadLine()));
-
-
 					sum++;
 				}
 			}
@@ -89,11 +93,11 @@
 					count++;
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				if (count != 0)
 				{
-					result = (double)sum / count;
+					result = (double) sum / count;
 					Console.WriteLine(result);
 				}
 				else
@@ -147,32 +151,77 @@
 					break;
 			}
 
-        }
-        static void parity_check()
-        {
-            Console.WriteLine("Введите число, для проверки его на четность");
-            try
-            {
-                int numb = Convert.ToInt32(Console.ReadLine());
-                if (numb % 2 == 0)
+		}
+		static void parity_check()
+		{
+			Console.WriteLine("Введите число, для проверки его на четность");
+			try
+			{
+				int numb = Convert.ToInt32(Console.ReadLine());
+				if (numb % 2 == 0)
+				{
+					Console.WriteLine("Число четное");
+
+				}
+				else
+				{
+					Console.WriteLine("Число не четное");
+
+				}
+
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Введите число!");
+				parity_check();
+
+			}
+
+		}
+
+		static void check_numb()
+		{
+
+			Console.WriteLine("Введите до какого числа (начало от нуля)");
+			int choose = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine(choose);
+
+            List<int> numbers = new List<int>(5);
+            Console.WriteLine(numbers.Count);
+            numbers.Add(2);
+            int num1 = 0;
+			int num2 = 0;
+
+			for (int i=0; i<numbers.Count; i++)
+			{
+				numbers.Add(2);
+
+			}
+            Console.WriteLine(numbers.Count);
+
+            foreach (int t in numbers)
+			{ Console.WriteLine(t); }
+
+			for (int i = 0; i < numbers.Count; i++)
+			{
+                Console.WriteLine(numbers[i]);
+                if (numbers[i] % 2 == 0)
                 {
-                    Console.WriteLine("Число четное");
+                    
+                    num1++;
 
                 }
                 else
                 {
-                    Console.WriteLine("Число не четное");
+                    num2++;
 
                 }
 
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Введите число!");
-                parity_check();
-
-            }
+            Console.WriteLine("Кол-во четных ---> " + num1);
+            Console.WriteLine("Кол-во нечетных ---> " + num2);
 
         }
-    }
+
+	}
 }
