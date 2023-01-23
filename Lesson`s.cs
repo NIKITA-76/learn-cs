@@ -1,4 +1,6 @@
-﻿namespace Lessons
+﻿using System.Diagnostics.Metrics;
+
+namespace Lessons
 {
 	internal class Gen_arith
 	{
@@ -192,16 +194,20 @@
             int[] numbers = new int[choose_end - choose_start];
             int num1 = 0;
 			int num2 = 0;
-			int acum = choose_start;
+			int acum = 0;
 
-			for (int i = choose_start; i < choose_end; i++)
+            for (int i = choose_start; i <= choose_end; i++)
 			{
-				numbers[i] = acum++;
-				Console.WriteLine(numbers[i]);
+                if (acum < numbers.Length)
+                {
+                    numbers[acum] = i;
+                    acum++;
+                }
+                else
+                    break;
+            }
 
-			}
-
-			for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
 			{
                 if (numbers[i] % 2 == 0)
                 {
