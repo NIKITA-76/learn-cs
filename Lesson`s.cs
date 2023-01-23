@@ -182,36 +182,34 @@
 		static void check_numb()
 		{
 
-			Console.WriteLine("Введите до какого числа (начало от нуля)");
-			int choose = Convert.ToInt32(Console.ReadLine());
-			Console.WriteLine(choose);
+			Console.WriteLine("Введите диапозон чисел");
+            Console.Write("Начальное число ---> ");
+            int choose_start = Convert.ToInt32(Console.ReadLine());
+            Console.Write("До какого числа ---> ");
+            int choose_end = Convert.ToInt32(Console.ReadLine());
 
-            int[] numbers = new int[choose];
-            Console.WriteLine(numbers.Length);
+
+            int[] numbers = new int[choose_end - choose_start];
             int num1 = 0;
 			int num2 = 0;
-			int acum = 1;
+			int acum = choose_start;
 
-			for (int i=0; i<numbers.Length; i++)
+			for (int i = choose_start; i < choose_end; i++)
 			{
 				numbers[i] = acum++;
+				Console.WriteLine(numbers[i]);
 
 			}
-            Console.WriteLine(numbers.Length);
 
 			for (int i = 0; i < numbers.Length; i++)
 			{
-                Console.WriteLine(numbers[i]);
                 if (numbers[i] % 2 == 0)
                 {
-                    
                     num1++;
-
                 }
                 else
                 {
                     num2++;
-
                 }
 
             }
