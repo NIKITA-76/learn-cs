@@ -186,23 +186,20 @@
 			int choose = Convert.ToInt32(Console.ReadLine());
 			Console.WriteLine(choose);
 
-            List<int> numbers = new List<int>(5);
-            Console.WriteLine(numbers.Count);
-            numbers.Add(2);
+            int[] numbers = new int[choose];
+            Console.WriteLine(numbers.Length);
             int num1 = 0;
 			int num2 = 0;
+			int acum = 1;
 
-			for (int i=0; i<numbers.Count; i++)
+			for (int i=0; i<numbers.Length; i++)
 			{
-				numbers.Add(2);
+				numbers[i] = acum++;
 
 			}
-            Console.WriteLine(numbers.Count);
+            Console.WriteLine(numbers.Length);
 
-            foreach (int t in numbers)
-			{ Console.WriteLine(t); }
-
-			for (int i = 0; i < numbers.Count; i++)
+			for (int i = 0; i < numbers.Length; i++)
 			{
                 Console.WriteLine(numbers[i]);
                 if (numbers[i] % 2 == 0)
