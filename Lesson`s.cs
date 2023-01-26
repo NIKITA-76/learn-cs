@@ -201,7 +201,6 @@ namespace Lessons
                 if (acum < numbers.Length)
                 {
                     numbers[acum] = i;
-                    Console.WriteLine(numbers[acum]);
                     acum++;
 					
                 }
